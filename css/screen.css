@@ -1,0 +1,1261 @@
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+    /* colors */
+    --global-color-neutral-light: #F7EAFE;
+    --global-color-neutral-light-transparent: #F7EAFEcc;
+
+    --global-color-alpha-light: #FF0000;
+    --global-color-alpha: #CC0000;
+    --global-color-alpha-dark: #990000;
+    --global-color-alpha-x-dark: #880000;
+    --global-color-alpha-xx-dark: #550000;
+    --global-color-alpha-xxx-dark: #220000;
+
+    --global-color-error: var(--global-color-alpha-xxx-dark);
+    
+    /* borders */
+    --global-border-input: 3px solid var(--global-color-alpha-dark);
+    --global-border-light: 2px solid var(--global-color-neutral-light);
+
+    --global-border-color-light: var(--global-color-neutral-light);
+
+    --global-border-radius-sm: 8px;
+    --global-border-radius: 16px;
+    
+    /* transitions */
+    --global-transition-timing-alpha: 200ms;
+
+    --global-transition-height: height var(--global-transition-timing-alpha) ease-out;
+    --global-transition-transform: transform var(--global-transition-timing-alpha);
+
+    /* fonts */
+    --global-fontsize-sm: 0.75rem; /* 12px */
+    --global-fontsize: 1rem; /* 16px */
+    --global-fontsize-md: 1.25rem; /* 20px */
+    --global-fontsize-lg: 1.5rem; /* 24px */
+    --global-fontsize-xl: 1.625rem; /* 26px */
+    --global-fontsize-xxl: 2rem; /* 32px */
+    --global-fontsize-xxxl: 4rem; /* 64px */
+
+    --global-fontweight-regular: 400;
+    --global-fontweight-medium: 500;
+    --global-fontweight-semibold: 600;
+
+    /* whitespace */
+    --global-whitespace-xxs: calc(var(--global-baseline) / 2); /* 4px */
+    --global-baseline: 0.5rem; /* 8px */
+    --global-whitespace-xs: calc(var(--global-baseline) * 2); /* 16px */
+    --global-whitespace-sm: calc(var(--global-baseline) * 3); /* 24px */
+    --global-whitespace-md: calc(var(--global-baseline) * 4); /* 32px */
+    --global-whitespace-lg: calc(var(--global-baseline) * 5); /* 40px */
+    --global-whitespace-xl: calc(var(--global-baseline) * 6); /* 48px */
+    --global-whitespace-2xl: calc(var(--global-baseline) * 9); /* 72px */
+    --global-whitespace-3xl: calc(var(--global-baseline) * 12); /* 96px */
+}
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+    font-size: var(--global-fontsize);
+    line-height: 1.5;
+    font-family: dinosaur, 'Work Sans', Helvetica, arial, sans-serif;
+    box-sizing: border-box;
+    color: var(--global-color-neutral-light);
+    background-color: var(--global-color-alpha);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/*
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* Customize the background color to match your design.
+*/
+
+::-moz-selection {
+    background: var(--global-color-alpha-xx-dark);
+    color: var(--global-color-alpha-light);
+    text-shadow: none;
+}
+
+::selection {
+    background: var(--global-color-alpha-xx-dark);
+    color: var(--global-color-alpha-light);
+    text-shadow: none;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+    max-width: 100%;
+    vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+    font-weight: var(--global-fontweight-medium);
+}
+
+h1 {
+    font-family: chippewa-falls;
+    font-size: var(--global-fontsize-xxxl);
+    margin: 0 0 var(--global-whitespace-xs);
+}
+
+h2 {
+    font-size: var(--global-fontsize-xxl);
+    margin: 0 0 var(--global-whitespace-xs);
+}
+
+h3 {
+    font-size: var(--global-fontsize-xl);
+    margin: 0 0 var(--global-whitespace-xs);
+}
+
+h4,
+h5,
+h6 {
+    font-size: var(--global-fontsize);
+    font-weight: var(--global-fontweight-semibold);
+    margin: 0 0 var(--global-whitespace-xs);
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+    margin: 0 0 var(--global-whitespace-xs);
+}
+
+ul,
+ol {
+    padding-left: var(--global-whitespace-xs);
+}
+
+li ul,
+li ol {
+    margin-bottom: 0;
+}
+
+blockquote {
+    font-style: normal;
+    font-size: var(--global-fontsize-md);
+    margin: 0 0 var(--global-whitespace-xs);
+}
+
+blockquote * {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+figcaption {
+    font-weight: var(--global-fontweight-regular);
+    font-size: var(--global-fontsize-sm);
+    margin-top: var(--global-baseline);
+    text-align: center;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: LightGrey;
+    margin: 0 0 var(--global-whitespace-xs);
+}
+
+a {
+    color: var(--global-color-neutral-light);
+    outline-color: var(--global-color-neutral-light);
+    outline-width: medium;
+    outline-offset: 2px;
+}
+
+a:visited,
+a:active {
+    color: var(--global-color-neutral-light);
+}
+
+a:hover,
+a:focus {
+    color: var(--global-color-neutral-light);
+}
+
+label,
+input {
+    display: block;
+}
+
+select {
+    font-size: var(--global-fontsize-md);
+}
+
+input::placeholder {
+    color: var(--global-color-neutral-light-transparent);
+}
+
+
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+/*
+    Objects: Row
+    ---
+    Creates a horizontal row that stretches the viewport and adds padding around children
+*/
+
+.o-row {
+    position: relative;
+    padding: var(--global-whitespace-xs) var(--global-whitespace-xs) 0;
+    display: flow-root;
+}
+
+/* size modifiers */
+
+.o-row--lg {
+    padding-top: var(--global-whitespace-xs);
+    padding-bottom: var(--global-whitespace-xs);
+}
+
+.o-row--xl {
+    padding-top: var(--global-whitespace-2xl);
+    padding-bottom: var(--global-whitespace-md);
+}
+
+@media (min-width: 48em) {
+    .o-row {
+        padding-left: var(--global-whitespace-md);
+        padding-right: var(--global-whitespace-md);
+    }
+}
+
+@media (min-width: 62em) {
+    .o-row--xl {
+        padding-top: var(--global-whitespace-3xl);
+        padding-bottom: var(--global-whitespace-2xl);
+    }
+}
+
+/*
+    Objects: Container
+    ---
+    Creates a horizontal container that sets de global max-width
+*/
+
+.o-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 26em; /* 79.5 * 16px = 1272 */
+    width: 100%;
+}
+
+@media(min-width: 36em) {
+    .o-container {
+        max-width: 35em;
+    }
+}
+
+@media(min-width: 48em) {
+    .o-container {
+        max-width: 55em;
+    }
+
+    .o-container--sm {
+        max-width: 37.5em;
+    }
+}
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: 1.5;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+    outline: none;
+}
+
+/*
+    Objects: Layout
+    ---
+    The layout object provides us with a column-style layout system. This object
+    contains the basic structural elements, but classes should be complemented
+    with width utilities
+*/
+
+.o-layout {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.o-layout__item {
+    width: 100%;
+    margin-bottom: var(--global-baseline);
+}
+
+/* item margin */
+/* .o-layout--margin > * + * {
+    margin-left: var(--global-baseline);
+} */
+
+/* directional modifiers */
+.o-layout--row-reverse {
+    flex-direction: row-reverse;
+}
+
+.o-layout--column {
+    flex-direction: column;
+}
+
+/* Horizontal alignment modifiers*/
+
+.o-layout--justify-start {
+    justify-content: flex-start;
+}
+
+.o-layout--justify-end {
+    justify-content: flex-end;
+}
+
+.o-layout--justify-center {
+    justify-content: center;
+}
+
+.o-layout--justify-space-around {
+    justify-content: space-around;
+}
+
+.o-layout--justify-space-evenly {
+    justify-content: space-evenly;
+}
+
+.o-layout--justify-space-between {
+    justify-content: space-between;
+}
+
+/* Vertical alignment modifiers */
+
+.o-layout--align-start {
+    align-items: flex-start;
+}
+
+.o-layout--align-end {
+    align-items: flex-end;
+}
+
+.o-layout--align-center {
+    align-items: center;
+}
+
+.o-layout--align-baseline {
+    align-items: baseline;
+}
+
+
+/*
+    Objects: grid
+    ---
+    creates grid layout
+*/
+
+.o-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-gap: var(--global-whitespace-md);
+}
+
+/* vertical item alignment modifiers */
+
+.o-grid--align-center {
+    align-items: center;
+}
+
+
+/*
+    Objects: figcaption
+    ---
+    object for styling figcaption
+*/
+
+.o-figcaption {
+    color: var(--global-color-neutral-light-transparent);
+}
+
+
+/*
+    Objects: text
+    ---
+    object for styling text
+*/
+
+.o-subtitle {
+    font-weight: 600;
+    font-size: var(--global-fontsize-md);
+}
+
+@media(min-width: 36em) {
+    .o-subtitle {
+        font-size: var(--global-fontsize-lg);
+    }
+}
+
+
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+/*
+    components: input
+    ---
+    component to style text input
+*/
+
+.c-input {
+    --input-border-color: var(--global-color-alpha-dark);
+    font-family: dinosaur;
+    background-color: var(--global-color-alpha-dark);
+    border: var(--global-border-input);
+    border-color: var(--input-border-color);
+    border-radius: var(--global-border-radius);
+    padding: calc(var(--global-baseline) * 1.5) var(--global-baseline);
+    color: #F7EAFE;
+    outline: none;
+    width: 100%;
+}
+
+.c-input:focus {
+    --input-border-color: var(--global-border-color-light);
+}
+
+.c-input__text {
+    font-size: var(--global-fontsize-md);
+}
+
+.c-input__error {
+    position: absolute;
+    top: calc(var(--global-baseline) * -3.5);
+    right: 0;
+    padding-right: var(--global-baseline);
+    color: var(--global-color-error);
+    font-weight: var(--global-fontweight-semibold);
+    opacity: 0;
+}
+
+.has-error > .c-input {
+    --input-border-color: var(--global-color-error);
+}
+
+
+/*
+    components: label
+    ---
+    component to style labels
+*/
+
+.c-label {
+    position: absolute;
+    font-size: var(--global-fontsize-md);
+    top: calc(var(--global-baseline) * -4);
+    padding-left: var(--global-baseline);
+}
+
+.has-error > .c-label {
+    color: var(--global-color-error);
+    font-weight: var(--global-fontweight-semibold);
+}
+
+
+/*
+    components: button
+    ---
+    component to style buttons
+*/
+
+.c-button {
+    color: var(--global-color-neutral-light);
+    font-size: var(--global-fontsize-md);
+}
+
+.c-button:hover {
+    cursor: pointer;
+}
+
+.c-button:active {
+    background-color: var(--global-color-alpha-x-dark);
+}
+
+
+/*
+    components: categories
+    ---
+    component to style categories items
+*/
+
+.c-categories {
+    max-width: 37.5em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.c-categories__item {
+    --c-data__item-content-height: calc(var(--global-baseline) * 2);
+    --c-data__item-height: calc(var(--c-data__name-lineheight) + calc(var(--global-baseline) * 2));
+    --c-data__name-lineheight: calc(var(--c-data__item-content-height) * 1.5);
+    font-size: var(--c-data__item-content-height);
+    margin-bottom: var(--global-whitespace-xs);
+    height: var(--c-data__item-height);
+    background-color: var(--global-color-alpha-dark);
+    border-radius: var(--global-border-radius-sm);
+    overflow: hidden;
+    transition: var(--global-transition-height);
+    min-width: 270px;
+}
+
+.c-categories__item:focus {
+    --c-data__item-height: calc(var(--c-data__name-lineheight) + calc(var(--global-baseline) * 2) + calc(var(--global-baseline) * 7));
+}
+
+.c-categories__item:hover {
+    cursor: pointer;
+}
+
+.c-categories__name {
+    line-height: var(--c-data__name-lineheight);
+    text-transform: uppercase;
+    overflow: hidden;
+    padding: var(--global-baseline);
+}
+
+.c-categories__meta {
+    font-size: var(--global-fontsize);
+    line-height: 1.2;
+    text-align: left;
+    padding: var(--global-baseline);
+    overflow: hidden;
+    width: 100%;
+}
+
+@media(min-width: 36em) {
+    .c-categories__item {
+        --c-data__item-content-height: calc(var(--global-baseline) * 3);
+    }
+
+    .c-categories__name {
+        padding: var(--global-baseline) var(--global-whitespace-xs);
+    }
+    
+    .c-categories__item:focus {
+        --c-data__item-height: calc(var(--c-data__name-lineheight) + calc(var(--global-baseline) * 2) + calc(var(--global-baseline) * 9));
+    }
+    
+    .c-categories__meta {
+        font-size: var(--global-fontsize-md);
+        padding: var(--global-whitespace-xs);
+    }
+}
+
+
+/*
+    components: arrow
+    ---
+    component to style arrow icon
+*/
+
+.c-arrow {
+    --c-arrow-height: var(--global-baseline);
+    height: var(--c-arrow-height);
+    width: calc(var(--global-baseline) * 2);
+    transition: var(--global-transition-transform);
+    margin: calc(var(--global-baseline) * 2);
+}
+
+.c-categories__item:focus .c-arrow {
+    opacity: 1;
+    transform: scaleY(-1);
+}
+
+@media(min-width: 36em) {
+    .c-arrow {
+        --c-arrow-height: var(--c-data__item-content-height);
+        margin-top: calc(var(--global-baseline) * 1.75);
+        margin-bottom: calc(var(--global-baseline) * 1.75);
+    }
+}
+
+
+/*
+    components: keyword search
+    ---
+    component to style search bar
+*/
+
+.c-keyword__item {
+    margin-bottom: var(--global-whitespace-xs);
+    background-color: var(--global-color-alpha-dark);
+    border-radius: var(--global-border-radius-sm);
+    width: 11em;
+    height: 11em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: var(--global-baseline);
+}
+
+.c-keyword__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.c-keyword__word {
+    display: block;
+    padding: var(--global-baseline);
+}
+
+.c-keyword__remove {
+    height: 1em;
+    width: 1em;
+    margin-right: var(--global-baseline);
+}
+
+.c-keyword__remove:hover {
+    cursor: pointer;
+}
+
+.c-keyword__count {
+    display: block;
+    font-size: var(--global-fontsize-md);
+    text-align: center;
+}
+
+.c-keyword__date {
+    text-align: end;
+    padding: var(--global-baseline);
+}
+
+@media(min-width: 36em) {
+    .c-keyword__count {
+        font-size: var(--global-fontsize-lg);
+    }
+    .c-keyword__item {
+        width: 12em;
+        height: 12em;
+    }
+}
+
+
+/*
+    components: mockup
+    ---
+    component to adjust mockup
+*/
+
+.c-mockup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.c-mockup__image {
+    height: 31.25rem;
+    min-width: 15.625rem;
+}
+
+
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+/*
+    Utilities: position
+    ---
+    Utility classes determining the position attribute
+*/
+
+.u-position-relative {
+    position: relative;
+}
+
+
+
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+    padding-top: 0 !important;
+}
+
+.u-mb-clear {
+    margin-bottom: 0 !important;
+}
+
+.u-mb-xs {
+    margin-bottom: var(--global-whitespace-xxs) !important;
+}
+
+.u-mb-sm {
+    margin-bottom: var(--global-baseline) !important;
+}
+
+.u-mb-md {
+    margin-bottom: var(--global-whitespace-xs) !important;
+}
+
+.u-mb-lg {
+    margin-bottom: var(--global-whitespace-sm) !important;
+}
+
+.u-mb-xl {
+    margin-bottom: var(--global-whitespace-xl) !important;
+}
+
+
+
+.u-mt-clear {
+    margin-top: 0 !important;
+}
+
+.u-mt-xs {
+    margin-top: var(--global-whitespace-xxs) !important;
+}
+
+.u-mt-sm {
+    margin-top: var(--global-baseline) !important;
+}
+
+.u-mt-md {
+    margin-top: var(--global-whitespace-xs) !important;
+}
+
+.u-mt-lg {
+    margin-top: var(--global-whitespace-xs) !important;
+}
+
+.u-mt-xl {
+    margin-top: var(--global-whitespace-xs) !important;
+}
+
+/*
+    Utilities: max-width
+    ---
+    Utility classes to put specific max widths onto elements
+*/
+
+.u-max-width-xs {
+    max-width: 27em !important;
+}
+
+.u-max-width-sm {
+    max-width: 39em !important;
+}
+
+.u-max-width-md {
+    max-width: 50em !important;
+}
+
+.u-max-width-lg {
+    max-width: 63.5em !important;
+}
+
+.u-max-width-none {
+    max-width: none !important;
+}
+
+
+/*
+    Utilities: grid span
+    Utility classes to determine the span of grid columns and rows
+*/
+
+/* x: horizontal */
+
+.u-x-span-12 {
+    grid-column: span 12 !important;
+}
+
+@media (min-width: 48em) {
+    .u-x-span-3-bp2 {
+        grid-column: span 3 !important;
+    }
+
+    .u-x-span-4-bp2 {
+        grid-column: span 4 !important;
+    }
+    
+    .u-x-span-5-bp2 {
+        grid-column: span 5 !important;
+    }
+
+    .u-x-span-6-bp2 {
+        grid-column: span 6 !important;
+    }
+
+    .u-x-span-8-bp2 {
+        grid-column: span 8 !important;
+    }
+
+    .u-x-span-9-bp2 {
+        grid-column: span 9 !important;
+    }
+}
+
+@media (min-width: 62em) {
+    .u-x-span-3-bp3 {
+        grid-column: span 3 !important;
+    }
+
+    .u-x-span-4-bp3 {
+        grid-column: span 4 !important;
+    }
+    
+    .u-x-span-5-bp3 {
+        grid-column: span 5 !important;
+    }
+
+    .u-x-span-6-bp3 {
+        grid-column: span 6 !important;
+    }
+
+    .u-x-span-8-bp3 {
+        grid-column: span 8 !important;
+    }
+
+    .u-x-span-9-bp3 {
+        grid-column: span 9 !important;
+    }
+}
+
+/* y: vertical */
+
+.u-y-span-3 {
+    grid-row: span 3 !important;
+}
+
+.u-y-span-4 {
+    grid-row: span 4 !important;
+}
+
+.u-y-span-6 {
+    grid-row: span 6 !important;
+}
+
+@media (min-width: 48em) {
+    .u-y-span-2-bp2 {
+        grid-row: span 2 !important;
+    }
+
+    .u-y-span-3-bp2 {
+        grid-row: span 3 !important;
+    }
+
+    .u-y-span-4-bp2 {
+        grid-row: span 4 !important;
+    }
+
+    .u-y-span-6-bp2 {
+        grid-row: span 6 !important;
+    }
+
+    .u-y-span-8-bp2 {
+        grid-row: span 8 !important;
+    }
+
+    .u-y-span-12-bp2 {
+        grid-row: span 12 !important;
+    }
+}
+
+@media (min-width: 62em) {
+    .u-y-span-2-bp3 {
+        grid-row: span 2 !important;
+    }
+
+    .u-y-span-3-bp3 {
+        grid-row: span 3 !important;
+    }
+
+    .u-y-span-4-bp3 {
+        grid-row: span 4 !important;
+    }
+
+    .u-y-span-6-bp3 {
+        grid-row: span 6 !important;
+    }
+
+    .u-y-span-8-bp3 {
+        grid-row: span 8 !important;
+    }
+
+    .u-y-span-12-bp3 {
+        grid-row: span 12 !important;
+    }
+}
+
+
+/*
+    Utilities: align
+    ---
+    Utility classes align text or components
+*/
+
+.u-align-text-center {
+    text-align: center !important;
+}
+
+.u-align-center {
+    margin: 0 auto !important;
+}
+
+/*
+    Utilities: text
+    Utility classes to create smaller or bigger test
+*/
+
+.u-text-md {
+    font-size: var(--global-fontsize-xxl) !important;
+}
+
+/*
+    Utility: Widths
+    ---
+    Utility classes to put specific widths onto elements
+    Will be mostly used on layout__item
+*/
+
+.u-width-auto {
+    width: auto !important;
+}
+
+.u-1-of-2 {
+    width: 50% !important;
+}
+
+.u-1-of-3 {
+    width: 33.3333333333% !important;
+}
+
+.u-2-of-3 {
+    width: 66.6666666667% !important;
+}
+
+.u-1-of-4 {
+    width: 25% !important;
+}
+
+.u-3-of-4 {
+    width: 75% !important;
+}
+
+.u-1-of-5 {
+    width: 20% !important;
+}
+
+.u-2-of-5 {
+    width: 40% !important;
+}
+
+.u-3-of-5 {
+    width: 60% !important;
+}
+
+.u-4-of-5 {
+    width: 80% !important;
+}
+
+.u-1-of-6 {
+    width: 16.6666666667% !important;
+}
+
+.u-5-of-6 {
+    width: 83.3333333333% !important;
+}
+
+@media (min-width: 36em) {
+    .u-1-of-2-bp1 {
+        width: 50% !important;
+    }
+    .u-1-of-3-bp1 {
+        width: 33.3333333333% !important;
+    }
+    .u-2-of-3-bp1 {
+        width: 66.6666666667% !important;
+    }
+    .u-1-of-4-bp1 {
+        width: 25% !important;
+    }
+    .u-3-of-4-bp1 {
+        width: 75% !important;
+    }
+    .u-1-of-5-bp1 {
+        width: 20% !important;
+    }
+    .u-2-of-5-bp1 {
+        width: 40% !important;
+    }
+    .u-3-of-5-bp1 {
+        width: 60% !important;
+    }
+    .u-4-of-5-bp1 {
+        width: 80% !important;
+    }
+    .u-1-of-6-bp1 {
+        width: 16.6666666667% !important;
+    }
+    .u-5-of-6-bp1 {
+        width: 83.3333333333% !important;
+    }
+}
+
+@media (min-width: 48em) {
+    .u-1-of-2-bp2 {
+        width: 50% !important;
+    }
+    .u-1-of-3-bp2 {
+        width: 33.3333333333% !important;
+    }
+    .u-2-of-3-bp2 {
+        width: 66.6666666667% !important;
+    }
+    .u-1-of-4-bp2 {
+        width: 25% !important;
+    }
+    .u-3-of-4-bp2 {
+        width: 75% !important;
+    }
+    .u-1-of-5-bp2 {
+        width: 20% !important;
+    }
+    .u-2-of-5-bp2 {
+        width: 40% !important;
+    }
+    .u-3-of-5-bp2 {
+        width: 60% !important;
+    }
+    .u-4-of-5-bp2 {
+        width: 80% !important;
+    }
+    .u-1-of-6-bp2 {
+        width: 16.6666666667% !important;
+    }
+    .u-5-of-6-bp2 {
+        width: 83.3333333333% !important;
+    }
+}
+
+@media (min-width: 62em) {
+    .u-1-of-2-bp3 {
+        width: 50% !important;
+    }
+    .u-1-of-3-bp3 {
+        width: 33.3333333333% !important;
+    }
+    .u-2-of-3-bp3 {
+        width: 66.6666666667% !important;
+    }
+    .u-1-of-4-bp3 {
+        width: 25% !important;
+    }
+    .u-3-of-4-bp3 {
+        width: 75% !important;
+    }
+    .u-1-of-5-bp3 {
+        width: 20% !important;
+    }
+    .u-2-of-5-bp3 {
+        width: 40% !important;
+    }
+    .u-3-of-5-bp3 {
+        width: 60% !important;
+    }
+    .u-4-of-5-bp3 {
+        width: 80% !important;
+    }
+    .u-1-of-6-bp3 {
+        width: 16.6666666667% !important;
+    }
+    .u-5-of-6-bp3 {
+        width: 83.3333333333% !important;
+    }
+}
+
+@media (min-width: 75em) {
+    .u-1-of-2-bp4 {
+        width: 50% !important;
+    }
+    .u-1-of-3-bp4 {
+        width: 33.3333333333% !important;
+    }
+    .u-2-of-3-bp4 {
+        width: 66.6666666667% !important;
+    }
+    .u-1-of-4-bp4 {
+        width: 25% !important;
+    }
+    .u-3-of-4-bp4 {
+        width: 75% !important;
+    }
+    .u-1-of-5-bp4 {
+        width: 20% !important;
+    }
+    .u-2-of-5-bp4 {
+        width: 40% !important;
+    }
+    .u-3-of-5-bp4 {
+        width: 60% !important;
+    }
+    .u-4-of-5-bp4 {
+        width: 80% !important;
+    }
+    .u-1-of-6-bp4 {
+        width: 16.6666666667% !important;
+    }
+    .u-5-of-6-bp4 {
+        width: 83.3333333333% !important;
+    }
+}
+
+/*------------------------------------*\
+#STATES
+\*------------------------------------*/
+
+/*
+    visibility
+*/
+
+.is-visible {
+    opacity: 1;
+}
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        /* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    /*
+    * Don't show links that are fragment identifiers,
+    * or use the `javascript:` pseudo protocol
+    */
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: var(--global-border-light);
+        page-break-inside: avoid;
+    }
+    /*
+    * Printing Tables:
+    * http://css-discuss.incutio.com/wiki/Printing_Tables
+    */
+    thead {
+        display: table-header-group;
+    }
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

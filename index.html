@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TopNews</title>
+        
+        <link rel="stylesheet" href="https://use.typekit.net/zyr3sbf.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/screen.css">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="Assets/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="Assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="Assets/favicon/favicon-16x16.png">
+        <link rel="manifest" href="Assets/favicon/site.webmanifest">
+        <link rel="mask-icon" href="Assets/favicon/safari-pinned-tab.svg" color="#cc0000">
+        <link rel="shortcut icon" href="Assets/favicon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#dd0000">
+        <meta name="msapplication-config" content="Assets/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+
+        <script src="script/app.js"></script>
+    </head>
+    <body>
+        <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" xmlns="http://www.w3.org/2000/svg">
+            <symbol id="arrow" viewBox="0 0 49.73 30.64">
+                <title>arrow</title>
+                <path style="fill:#F7EAFE;" d="M49.32,6.78a1.43,1.43,0,0,0,0-2L45,.41a1.42,1.42,0,0,
+                0-2,0L25.87,17.5a1.43,1.43,0,0,1-2,0L6.78.41a1.43,1.43,0,0,0-2,0L.41,4.77a1.43,1.43
+                ,0,0,0,0,2L17.5,23.86l1,1,1,1,4.35,4.36a1.43,1.43,0,0,0,2,0l4.36-4.36,2-2Z"/>
+            </symbol>
+        </svg>
+        <div class="o-container o-container--sm">
+            <div class="o-row o-row--lg">
+                <h1 class="u-align-text-center">TopNews</h1>
+            </div>
+            <div class="o-row o-row--lg">
+                <p class="o-subtitle">Categories</p>
+                <div class="o-layout o-layout--column c-categories js-categories">
+                    <h2 class="u-align-center">Loading...</h2>
+                </div>
+            </div>
+        </div>
+        <div class="o-container">
+            <div class="o-row o-row--lg">
+                <p class="o-subtitle">Keyword search</p>
+                <div class="o-layout o-layout--justify-space-between o-layout--align-center o-layout--margin u-mb-lg">
+                    <input class="o-layout__item c-input c-input__text u-1-of-2-bp2 js-keyword-input" placeholder="Search..." required>
+                    <select class="o-layout__item c-input u-1-of-5-bp2 js-keyword-date">
+                        <option value="today">today</option>
+                        <option value="last week">last week</option>
+                        <option value="last month">last month</option>
+                    </select>
+                    <button class="o-layout__item o-button-reset c-input c-button u-1-of-5-bp2 js-keyword-add">Add keyword</button>
+                </div>
+                <div class="o-layout js-keywords">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
